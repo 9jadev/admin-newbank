@@ -1,0 +1,189 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Domine:wght@400;500;600;700&display=swap');
+body {
+    background: #fff;
+    font-family: 'Domine', serif;
+    overflow: hidden;
+}
+
+.disbutton {
+    border: 1px solid black!important;
+    background-color: grey!important;
+    color: white!important;
+    padding: 15px;
+    cursor: not-allowed;
+}
+
+.sidbar {
+    a:hover, .active, .nuxt-link-active {
+        background:#FFF3F0!important;
+        color:#EE5A35;
+        svg {
+            color: #EE5A35!important;
+        }
+    }
+    margin-left: 36px;
+    // width: max-content;
+    li, a {
+        padding-left: 15px;
+        padding-left: 10px;
+        height: 42px;
+        background:#FFFFFF;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 17px;
+        color: #7A7A7A;
+    }
+}
+
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+  
+.procard {
+    width: 100%;
+    height: 70px;
+    background: white;
+    box-shadow: 4px 4px 8px 0px #0000000a;
+    border-radius: 8px;
+    padding: 20px;
+}  
+
+.editcard {
+    border: 1px solid #B8B8B888;
+    border-radius: 10px;
+}
+
+.ant-drawer-body {
+    padding: 0px!important;
+}
+
+.ant-menu-submenu-title {
+    span {
+        display: flex;
+        align-items: center;
+    }
+}
+
+.ant-menu-item {
+    // padding-left: 24px!important;
+    height: 50px!important;
+    display: flex!important;
+    align-items: center!important;
+    font-size: 15px!important;
+    font-weight: 500;
+    a {
+        display: flex!important;
+        justify-content: center!important;
+        align-items: center!important;
+        font-weight: 500;
+    }
+}
+
+.subheader {
+    font-size: 15px!important;
+    font-weight: 500;
+}
+
+.sublink {
+    font-size: 12px!important;
+}
+
+.ant-menu-sub {
+    .ant-menu-item {
+        // padding-left: 24px!important;
+        height: 30px!important;
+        display: flex!important;
+        align-items: center!important;
+        font-size: 15px!important;
+        
+    }
+}
+#acountab {
+    .ant-tabs-top-bar {
+        background: #fff3ef;
+        border-radius: 10px;
+        padding: 0px 20px;
+    }
+}
+
+.slick-arrow { 
+    color: black!important;
+}
+
+.flexwrap {
+    flex-wrap: wrap;
+}
+
+.activeinput:focus-visible {
+    box-shadow: 0px 0px 4px 0px #000;
+
+}
+
+
+.mainsidebar {
+    background: var(--White, #FFF);
+    box-shadow: 0px 3px 15px 0px rgba(202, 210, 226, 0.15), 0px 0px 5px 0px rgba(202, 210, 226, 0.10);
+}
+
+.menulist {
+    a {
+        padding: 10px;
+        margin-bottom: 20px;
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        border-radius: 4px;
+       span {
+            color: var(--v-2-content-tertiary, #868685);
+            font-feature-settings: 'clig' off, 'liga' off;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 300;
+            line-height: 150%; 
+       }
+    }
+
+    .nuxt-link-exact-active {
+        background: #EEEFFF!important;
+        span {
+            color: var(--primary-600, #0042EC)!important;
+        }
+        svg {
+            fill: var(--primary-600, )!important;
+        }
+        
+    }
+}
+
+// .card-pricing2:before {
+//     content: "";
+//     width: 100%;
+//     height: 350px;
+//     position: absolute;
+//     top: -150px;
+//     left: 0;
+//     transform: skewY(-20deg);
+//     background: #d94a4a;
+// }
+
+.slacker {
+    transform: skewY(-20deg);
+    height: 200px;
+    position: relative;
+    top: -130px;
+}
+
+.cardlabel {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    margin-top: 23px;
+}

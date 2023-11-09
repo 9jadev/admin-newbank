@@ -1,0 +1,86 @@
+[
+  {
+    "name": "dashboard",
+    "path": "/dashboard",
+    "component": "/Users/broadshiftahambasolomon/Documents/newbank-admin-frontend/pages/dashboard/index.vue",
+    "chunkName": "pages/dashboard/index"
+  },
+  {
+    "name": "eeotp",
+    "path": "/eeotp",
+    "component": "/Users/broadshiftahambasolomon/Documents/newbank-admin-frontend/pages/eeotp.vue",
+    "chunkName": "pages/eeotp"
+  },
+  {
+    "name": "forgot-password",
+    "path": "/forgot-password",
+    "component": "/Users/broadshiftahambasolomon/Documents/newbank-admin-frontend/pages/forgot-password.vue",
+    "chunkName": "pages/forgot-password"
+  },
+  {
+    "name": "funding",
+    "path": "/funding",
+    "component": "/Users/broadshiftahambasolomon/Documents/newbank-admin-frontend/pages/funding/index.vue",
+    "chunkName": "pages/funding/index"
+  },
+  {
+    "name": "indexxx",
+    "path": "/indexxx",
+    "component": "/Users/broadshiftahambasolomon/Documents/newbank-admin-frontend/pages/indexxx.vue",
+    "chunkName": "pages/indexxx"
+  },
+  {
+    "name": "investment",
+    "path": "/investment",
+    "component": "/Users/broadshiftahambasolomon/Documents/newbank-admin-frontend/pages/investment/index.vue",
+    "chunkName": "pages/investment/index"
+  },
+  {
+    "name": "otp",
+    "path": "/otp",
+    "component": "/Users/broadshiftahambasolomon/Documents/newbank-admin-frontend/pages/otp.vue",
+    "chunkName": "pages/otp"
+  },
+  {
+    "name": "refferals",
+    "path": "/refferals",
+    "component": "/Users/broadshiftahambasolomon/Documents/newbank-admin-frontend/pages/refferals/index.vue",
+    "chunkName": "pages/refferals/index"
+  },
+  {
+    "name": "transfer",
+    "path": "/transfer",
+    "component": "/Users/broadshiftahambasolomon/Documents/newbank-admin-frontend/pages/transfer/index.vue",
+    "chunkName": "pages/transfer/index"
+  },
+  {
+    "name": "wire-transfers",
+    "path": "/wire-transfers",
+    "component": "/Users/broadshiftahambasolomon/Documents/newbank-admin-frontend/pages/wire-transfers/index.vue",
+    "chunkName": "pages/wire-transfers/index"
+  },
+  {
+    "name": "withdraw",
+    "path": "/withdraw",
+    "component": "/Users/broadshiftahambasolomon/Documents/newbank-admin-frontend/pages/withdraw/index.vue",
+    "chunkName": "pages/withdraw/index"
+  },
+  {
+    "name": "dashboard-profile",
+    "path": "/dashboard/profile",
+    "component": "/Users/broadshiftahambasolomon/Documents/newbank-admin-frontend/pages/dashboard/profile.vue",
+    "chunkName": "pages/dashboard/profile"
+  },
+  {
+    "name": "index",
+    "path": "/",
+    "component": "/Users/broadshiftahambasolomon/Documents/newbank-admin-frontend/pages/index.vue",
+    "chunkName": "pages/index"
+  },
+  {
+    "name": "dashboard-id",
+    "path": "/dashboard/:id",
+    "component": "/Users/broadshiftahambasolomon/Documents/newbank-admin-frontend/pages/dashboard/_id.vue",
+    "chunkName": "pages/dashboard/_id"
+  }
+]
