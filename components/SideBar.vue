@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="bg-white p-9 mt-6 md:mt-6 flex h-14 items-center justify-center rounded-sm">
-            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="49px" height="62px" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <!-- <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="49px" height="62px" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <g><path style="opacity:0.11" fill="#e1e6f5" d="M 35.5,15.5 C 34.2801,13.9504 34.2801,12.2837 35.5,10.5C 38.0835,8.58089 37.7502,6.91422 34.5,5.5C 33.8165,5.86273 33.1499,6.19607 32.5,6.5C 33.8278,4.25542 35.6612,3.92208 38,5.5C 38.6667,7.16667 38.6667,8.83333 38,10.5C 36.6283,11.9101 35.795,13.5767 35.5,15.5 Z"/></g>
                 <g><path style="opacity:1" fill="#292465" d="M 35.5,10.5 C 35.5,9.5 35.5,8.5 35.5,7.5C 34.209,7.26269 33.209,7.59603 32.5,8.5C 31.8333,8.5 31.5,8.83333 31.5,9.5C 30.5084,9.67158 29.8417,9.33825 29.5,8.5C 30.5,7.83333 31.5,7.16667 32.5,6.5C 33.1499,6.19607 33.8165,5.86273 34.5,5.5C 37.7502,6.91422 38.0835,8.58089 35.5,10.5 Z"/></g>
                 <g><path style="opacity:1" fill="#221c61" d="M 19.5,8.5 C 17.6329,9.75984 16.2995,11.4265 15.5,13.5C 14.7777,14.5511 13.7777,15.2178 12.5,15.5C 13.1667,11.5 15.5,9.16667 19.5,8.5 Z"/></g>
@@ -56,7 +56,8 @@
                 <g><path style="opacity:1" fill="#7e7bb5" d="M 13.5,53.5 C 14.1667,53.5 14.8333,53.5 15.5,53.5C 15.8333,54.1667 16.1667,54.8333 16.5,55.5C 14.9731,55.573 13.9731,54.9063 13.5,53.5 Z"/></g>
                 <g><path style="opacity:1" fill="#8b90c1" d="M 16.5,55.5 C 19.7644,56.3242 23.0977,56.6576 26.5,56.5C 26.1583,57.3382 25.4916,57.6716 24.5,57.5C 22.1432,57.6633 19.8098,57.4966 17.5,57C 16.944,56.6174 16.6107,56.1174 16.5,55.5 Z"/></g>
                 <g><path style="opacity:0.027" fill="#edf2fc" d="M 31.5,55.5 C 31.4226,56.7498 30.756,57.5831 29.5,58C 27.6131,58.7796 25.9464,58.6129 24.5,57.5C 25.4916,57.6716 26.1583,57.3382 26.5,56.5C 26.8333,56.5 27.1667,56.5 27.5,56.5C 28.8333,56.1667 30.1667,55.8333 31.5,55.5 Z"/></g>
-            </svg>
+            </svg> -->
+            <!-- <img src="~/assets/icon.png" /> -->
         </div>
 
         <ul class="p-6 menulist">

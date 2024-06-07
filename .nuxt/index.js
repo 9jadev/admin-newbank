@@ -20,7 +20,6 @@ import nuxt_plugin_pluginclient_510d9611 from 'nuxt_plugin_pluginclient_510d9611
 import nuxt_plugin_pluginserver_9271f0ce from 'nuxt_plugin_pluginserver_9271f0ce' // Source: ./cloudinary/plugin.server.js (mode: 'server')
 import nuxt_plugin_workbox_cb623c44 from 'nuxt_plugin_workbox_cb623c44' // Source: ./workbox.js (mode: 'client')
 import nuxt_plugin_metaplugin_32e12a1e from 'nuxt_plugin_metaplugin_32e12a1e' // Source: ./pwa/meta.plugin.js (mode: 'all')
-import nuxt_plugin_iconplugin_2991df36 from 'nuxt_plugin_iconplugin_2991df36' // Source: ./pwa/icon.plugin.js (mode: 'all')
 import nuxt_plugin_axios_d952957c from 'nuxt_plugin_axios_d952957c' // Source: ./axios.js (mode: 'all')
 import nuxt_plugin_antdui_2b2dca90 from 'nuxt_plugin_antdui_2b2dca90' // Source: ../plugins/antd-ui (mode: 'all')
 import nuxt_plugin_notify_3d9f4950 from 'nuxt_plugin_notify_3d9f4950' // Source: ../plugins/notify.js (mode: 'all')
@@ -93,7 +92,7 @@ async function createApp(ssrContext, config = {}) {
   // here we inject the router and store to all child components,
   // making them available everywhere as `this.$router` and `this.$store`.
   const app = {
-    head: {"title":"New Bank Admin","meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"hid":"description","name":"description","content":""},{"name":"format-detection","content":"telephone=no"}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"\u002Ffavicon.ico"}],"style":[],"script":[]},
+    head: {"title":"Dashboard","meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"hid":"description","name":"description","content":""},{"name":"format-detection","content":"telephone=no"}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"\u002Ffavicon.ico"}],"style":[],"script":[]},
 
     store,
     router,
@@ -249,10 +248,6 @@ async function createApp(ssrContext, config = {}) {
 
   if (typeof nuxt_plugin_metaplugin_32e12a1e === 'function') {
     await nuxt_plugin_metaplugin_32e12a1e(app.context, inject)
-  }
-
-  if (typeof nuxt_plugin_iconplugin_2991df36 === 'function') {
-    await nuxt_plugin_iconplugin_2991df36(app.context, inject)
   }
 
   if (typeof nuxt_plugin_axios_d952957c === 'function') {

@@ -50,6 +50,18 @@ export class ApiService {
         return await this.$axios.post(`admin/customer/credit`, param);
     }
 
+    async updateCreatedAt(param) {
+        return await this.$axios.post(`admin/customer/backdate`, param);
+    }
+
+    async updateTransaction(param) {
+        return await this.$axios.post(`admin/customer/update-transactions`, param);
+    }
+
+    async updateCreatedAtTransaction(param) {
+        return await this.$axios.post(`admin/customer/transaction/backdate`, param);
+    }
+
     async debitCustomer(param) {
         return await this.$axios.post(`admin/customer/debit`, param);
     }
@@ -64,6 +76,14 @@ export class ApiService {
 
     async customerWireTransaction(id) {
         return await this.$axios.get(`admin/customer/wire-transaction/${id}`);
+    }
+
+    async deleteWireTransaction(id) {
+        return await this.$axios.get(`admin/customer/delete-wire-transaction/${id}`);
+    }
+
+    async deleteTransaction(id) {
+        return await this.$axios.get(`admin/customer/delete-transaction/${id}`);
     }
 
     async unblockAccount(param) {

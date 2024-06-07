@@ -23,6 +23,7 @@
                         <td class="text-[15px] pl-5 font-semibold leading-[21px] font-[#1D2939] py-4">Type</td> 
                         <td class="text-[15px] font-semibold leading-[21px] font-[#1D2939] py-4">Amount</td> 
                         <td class="text-[15px] font-semibold leading-[21px] font-[#1D2939] py-4">Date</td>
+                        <td class="text-[15px] font-semibold leading-[21px] font-[#1D2939] py-4"></td>
                       </tr>
                     </thead>
                     <tbody>
@@ -33,6 +34,22 @@
                             </td> 
                             <td class="text-[15px] font-bold leading-[21px] font-[#1D2939] py-4">{{ item.amount | currency(customer?.currency) }}</td> 
                             <td class="text-[15px] font-normal leading-[21px] font-[#1D2939] py-4"> {{ item.created_at | dateFormat }} </td>
+                            <td class="text-[15px] font-normal leading-[21px] font-[#1D2939] py-4">
+                                <a-button type="primary" @click="visibletimeget(item)">
+                                    Backdate
+                                </a-button>
+
+                                <a-popconfirm
+                                    title="Are you sure delete this transaction"
+                                    ok-text="Yes"
+                                    cancel-text="No"
+                                    @confirm="deleteTransaction(item.id)"
+                                    @cancel="canceldete()"
+                                >
+                                    <a-button type="danger"> Delete </a-button>
+                                </a-popconfirm>
+
+                            </td>
                         </tr>
                     </tbody>
                 </table>
@@ -62,6 +79,16 @@
                             <td class="text-[15px] font-normal leading-[21px] font-[#1D2939] py-4"> {{ item.created_at | dateFormat }} </td>
                             <td class="text-[15px] font-normal leading-[21px] font-[#1D2939] py-4"> 
                                 <a-button type="primary" @click="showWireModel(item)"> View </a-button>
+                                <a-popconfirm
+                                    title="Are you sure delete this wire transaction"
+                                    ok-text="Yes"
+                                    cancel-text="No"
+                                    @confirm="deleteWireTransaction(item.id)"
+                                    @cancel="canceldete()"
+                                >
+                                    <a-button type="danger"> Delete </a-button>
+                                </a-popconfirm>
+
                             </td>
                         </tr>
                     </tbody>
@@ -102,6 +129,24 @@
 
             <p>Account Type: {{ wire_transfers_data?.transaction_transfer_description | capitalize }} </p>
             <p>Country: {{ wire_transfers_data?.transaction_transfer_type | capitalize }}</p>
+            <p> Back Date Time </p>
+            <div class="flex justify-center items-center ">
+                <div class="mb-4 w-full">
+                    <!-- <label
+                      for="datetime"
+                      class="mb-4 text-md text-[1rem] font-normal text-[#00154A] leading-[150%]"
+                    >Created At</label> -->
+                    <input
+                      type="datetime-local"
+                      v-model.trim="datetime"
+                      class="bg-white border border-[#D1D1D1] h-10 placeholder:text-[0.9rem] font-light activeinput leading-[150%] placeholder:text-[#868685] focus-visible:outline-none rounded-[0.5rem] focus-visible:border-[#072C5C] text-black text-lg p-2"
+                      id="datetime"
+                      placeholder="Set your datetime"
+                    />
+                </div>
+                <button type="button" @click="worddate()" class="hover:transition-all hover:bg-[#072C5C] text-white h-10 bg-[#072C5C] focus-visible:outline-none font-normal leading-[150%] rounded-[0.5rem] w-full px-5 py-2 text-center">Back Date</button>
+            </div>
+            
         </a-modal>
 
         <a-modal v-model="creditvisible" :footer="null" title="Credit Account ">
@@ -138,7 +183,7 @@
             </div>
         </a-modal>
 
-        <a-modal v-model="blockvisible" :footer="null" title="Block">
+        <a-modal v-model="blockvisible" :footer="null" title="Block Account">
             <div class="w-full">
                 <textarea
                     class="bg-white border border-[#D1D1D1] h-20 placeholder:text-[0.9rem] font-light activeinput leading-[150%] placeholder:text-[#868685] focus-visible:outline-none rounded-[0.5rem] focus-visible:border-[#072C5C] text-black text-lg w-full p-2" 
@@ -150,7 +195,7 @@
             </div>
         </a-modal>
 
-        <a-modal v-model="unblockvisible" :footer="null" title="Block">
+        <a-modal v-model="unblockvisible" :footer="null" title="UnBlock Account">
             <div class="w-full">
                 <textarea
                     class="bg-white border border-[#D1D1D1] h-20 placeholder:text-[0.9rem] font-light activeinput leading-[150%] placeholder:text-[#868685] focus-visible:outline-none rounded-[0.5rem] focus-visible:border-[#072C5C] text-black text-lg w-full p-2" 
@@ -159,6 +204,30 @@
                 >
                 </textarea>
                 <a-button type="primary" class="mt-3" @click="unblockAccount()"> Submit </a-button>
+            </div>
+        </a-modal>
+
+        <a-modal
+            title="BackDate"
+            :visible="visibletime"
+            @ok="handleOk"
+            @cancel="handleCancel"
+        >
+            <div class="flex justify-center items-center ">
+                <div class="mb-4 w-full">
+                    <!-- <label
+                    for="datetime"
+                    class="mb-4 text-md text-[1rem] font-normal text-[#00154A] leading-[150%]"
+                    >Created At</label> -->
+                    <input
+                        type="datetime-local"
+                        v-model.trim="tdatetime"
+                        class="bg-white border border-[#D1D1D1] h-10 placeholder:text-[0.9rem] font-light activeinput leading-[150%] placeholder:text-[#868685] focus-visible:outline-none rounded-[0.5rem] focus-visible:border-[#072C5C] text-black text-lg p-2"
+                        id="datetime"
+                        placeholder="Set your datetime"
+                    />
+                </div>
+                <button type="button" @click="tworddate()" class="hover:transition-all hover:bg-[#072C5C] text-white h-10 bg-[#072C5C] focus-visible:outline-none font-normal leading-[150%] rounded-[0.5rem] w-full px-5 py-2 text-center">Back Date</button>
             </div>
         </a-modal>
 
@@ -175,6 +244,7 @@ export default {
   data() {
     return {
         visible: false,
+        visibletime: false,
         customer: null,
         creditamount: "",
         creditvisible: false,
@@ -188,10 +258,102 @@ export default {
         transactions: [],
         wire_transfers: [],
         show_wiretransfervisible: false,
-        wire_transfers_data: null
+        wire_transfers_data: null,
+        datetime: null,
+        tdatetime: null,
+        trans: null
     };
   },
   methods: {
+    visibletimeget(item) {
+        this.visibletime = true
+        this.trans = item
+    },
+    tworddate() {
+        if (this.tdatetime ==  null) {
+            this.$notyf.error("Date Time Required")
+            return
+        }
+        const data  = {
+            "datetime": this.tdatetime,
+            "id": this.trans.uuid
+        }
+        console.log(data)
+
+        this.$apiservice.updateTransaction(data).then((value) => {
+            console.log(value.data)
+            this.$notyf.success(value.data.message)
+            this.tdatetime = null
+            this.trans = null
+            this.visibletime = false
+            this.showCustomer()
+        //   this.transactions = data.data.trans
+        }).catch(err => {
+            console.log(err)
+			this.$notyf.error(err.response.data.message == null ? "Error Occoured" : err.response.data.message);
+		})
+    },
+    worddate() {
+        // console.log(this.datetime)
+        if (this.datetime ==  null) {
+            this.$notyf.error("Date Time Required")
+            return
+        }
+        const data = {
+            "id": this.wire_transfers_data.id,
+            "datetime": this.datetime
+        };
+        console.log(data)
+        this.$apiservice.updateCreatedAt(data).then((value) => {
+          console.log(value.data)
+          this.$notyf.success(value.data.message)
+            this.parseTransaction(this.wire_transfers_data.url);
+          this.datetime = null
+          this.showCustomer()
+       
+        //   this.transactions = data.data.trans
+        }).catch(err => {
+            console.log(err)
+			this.$notyf.error(err.response.data.message == null ? "Error Occoured" : err.response.data.message);
+		})
+        
+    },
+
+    async parseTransaction (url) {
+        if (url == null) {
+            console.log("924924"+url)
+            return
+        }
+        // Define a regular expression to match the UUID
+        const regex = /pdftransfer\/([^\/]+)\/([^\/]+)/;
+
+        // Use the exec method to extract the UUID and variable part
+        const match = regex.exec(url);
+
+        // Check if a match is found
+        if (match && match.length > 2) {
+            const uuid = match[1];
+            const variablePart = match[2];
+            console.log("UUID:", uuid);
+            const data = {
+                "id": uuid,
+                "datetime": this.datetime
+            }
+            console.log(data)
+            await this.$apiservice.updateCreatedAtTransaction(data).then((value) => {
+                console.log(value.data)
+                this.$notyf.success(value.data.message)
+                this.datetime = null
+            //   this.transactions = data.data.trans
+            }).catch(err => {
+                console.log(err)
+                this.$notyf.error(err.response.data.message == null ? "Error Occoured" : err.response.data.message);
+            })
+
+        } else {
+            console.log("UUID and Variable Part not found in the URL");
+        }
+    },
     showModal() {
       this.visible = true;
     },
@@ -221,10 +383,26 @@ export default {
 			this.$notyf.error(err.response.data.message == null ? "Error Occoured" : err.response.data.message);
 		})
     },
+    deleteWireTransaction(id) {
+        this.$apiservice.deleteWireTransaction(id).then((data) => {
+            this.$notyf.success(data.data.message)
+            this.showCustomer()
+        })
+    },
+
+    deleteTransaction(id) {
+        this.$apiservice.deleteTransaction(id).then((data) => {
+            this.$notyf.success(data.data.message)
+            this.showCustomer()
+        })
+    },
+
+    canceldete(){},
     customerWireTransaction(id) {
         this.$apiservice.customerWireTransaction(id).then((data) => {
           console.log(data.data)
           this.wire_transfers = data.data.wire_transfers
+
         //   this.creditamount = null
         //   this.creditvisible = false
         //   this.$notyf.success(data.data.message)
